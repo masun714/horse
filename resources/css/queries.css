@@ -1,0 +1,62 @@
+
+/* big tablets to 1200px: */
+@media only screen and (max-width: 1200px){
+    .hero-text-box{
+    width: 100%;
+    padding: 0 2%;
+    }
+    
+    .row {
+        padding: 0 2%;
+    }
+}
+
+/* Small tablets to big tablets: from 768 to 1023 */
+@media only screen and (max-width: 1023px){
+    body {font-size: 18px;}
+    section { padding: 60px 0;}
+    
+    .long-copy{
+    width: 80%;
+    margin-left: 10%;
+    }
+    .steps-box img { width: }
+    .works-step {margin-bottom: 40px;}
+    .works-step:last-of-type { margin-bottom: 80px;}
+    .steps-box:last-child{ margin-top: 30px;}
+/*
+    .steps-box{ margin-top: 10px;}
+*/
+    .app-screen { width: 50%;}
+    .btn-app img{
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+    }
+    
+    .icon-small { width: 15px;
+    margin-right: 5px}
+    
+    .city-feature { font-size: 85%;}
+    
+    .plan-box {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .plan-price {
+        font-size: 250%;
+    }
+    
+    .contact-form {width: 80%}
+}
+
+/* Small phone to Small tablets: from 481 to 767px */
+@media only screen and (max-width: 767px){
+    
+}
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 480px){
+    
+}
