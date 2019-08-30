@@ -1,0 +1,250 @@
+#panel header {
+    display: flex;
+}
+
+#panel header .matchTitle {
+    color: #fff;
+    width: 100%;
+    margin-top: 11px;
+    height: 47px;
+    background: #777;
+    margin-left: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-top: 3px;
+}
+
+#panel header .matchTitle .matchTitleRow{
+    width: 100%;
+    display: flex;
+}
+
+#panel header .matchTitle .matchTitleRow div {
+    flex: 1;
+    padding-left: 10px;
+}
+
+#panel header .matchTitle .matchTitleRow.second div:first-child{
+    flex: 4;
+}
+
+#panel header .matchTitle .matchTitleRow.second div {
+    flex: 3;
+}
+
+#panel {
+    background-color: #242B33;
+}
+
+#panel .pullTab {
+    border-left: 20px solid #fff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    height: 50px;
+    width: 0;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+#panel .standardTime {
+    padding: 2px;
+}
+
+#panel .standardTime div {
+    margin: 2px 0;
+}
+
+#panel .standardTime span,
+#panel .horseListControl span{
+    padding: 2px;
+    margin: 0 2px;
+    background-color: #313840;
+}
+
+/*******************SPEED LIST INFO***********************/
+
+.info{
+    margin-top: 10px;
+    max-height: 1000px;
+    transition: all 0.6s ease-in;
+    -webkit-transition: all 0.6s ease-in;
+}
+
+/*.info.final .horseInfoRow .horseBar .barCtn.finalTime{*/
+/*    border: 1px solid #b16060;*/
+/*}*/
+
+/*.info.first .horseInfoRow .horseBar .barCtn.firstPos{*/
+/*    border: 1px solid #b16060;*/
+/*}*/
+
+/*.info.last .horseInfoRow .horseBar .barCtn.finalPos{*/
+/*    border: 1px solid #b16060;*/
+/*}*/
+
+.info.final .barCtn.firstPos,
+.info.final .barCtn.finalPos{
+    opacity: 0.2;
+}
+
+.info.first .barCtn.finalTime,
+.info.first .barCtn.finalPos{
+    opacity: 0.2;
+}
+
+.info.last .barCtn.firstPos,
+.info.last .barCtn.finalTime{
+    opacity: 0.2;
+}
+
+.horseInfoRow{
+    width: calc(100% - 5px);
+    display: flex;
+    margin-top: 5px;
+}
+
+.horseInfoRow .horseName{
+    flex: 0 0 20%;
+    font-size: 0.9em;
+}
+
+.horseInfoRow .horseBar{
+    flex: 0 0 80%;
+}
+
+.horseInfoRow .horseBar .barCtn{
+    margin-top: 2px;
+    width: 0;
+    transition: width 0.3s ease-in;
+    -webkit-transition: width 0.3s ease-in;
+    
+}
+.horseInfoRow .horseBar .barCtn.finalTime{
+    height:5px;
+    background: #fff;
+    border: 0.5px solid #fff;
+}
+
+.horseInfoRow .horseBar .barCtn.firstPos{
+    height:3px;
+    background: #C3D69B;
+    border: 0.5px solid #fff;
+}
+
+.horseInfoRow .horseBar .barCtn.finalPos{
+    height:3px;
+    background: #558ED5;
+    border: 0.5px solid #fff;
+}
+
+.info {
+    color: #777;
+}
+
+/*******************SPEED LIST************************/
+
+.horseListControl {
+    color: #fff;
+}
+
+.horseTableList {
+    color: #fff;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.horseTableList .horseBox.grid-item {
+    
+     float: left;
+  width: 100%;
+  /*height: 100px;*/
+}
+
+.horseTableList .horseBox {
+    padding: 20px 0;
+    background-color: #464b50;
+    margin: 10px 0;
+    display: table;
+    border-radius: 5px;
+}
+
+.horseTableList .horseBoxHistory {
+    padding: 0 15px;
+}
+
+.horseTableHeader {
+    display: table;
+    color: #fff;
+}
+
+.sectionControl {
+    display: flex;
+}
+
+.sectionControl div{
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    margin: 5px 1px;
+    border-radius: 2px;
+    background-color: #313840;
+    margin-top: 15px;
+}
+
+.sectionControl div.on {
+    background-color: #777;
+}
+
+/***************************************************/
+
+.horseTableHeader div,
+.horseTableList .horseBox .horseBoxWrapper div {
+    text-align: center;
+    display: table-cell;
+    padding: 5px;
+    width: 50px;
+}
+.horseTableHeader div:nth-child(2),
+.horseTableHeader div:nth-child(4),
+.horseTableList .horseBox .horseBoxWrapper div:nth-child(2),
+.horseTableList .horseBox .horseBoxWrapper div:nth-child(4) {
+    width: 80px;
+}
+
+.horseTableList .horseBox .historyBox .wrapper.matchBasicDetail{
+    padding-top: 15px;
+}
+
+.horseTableList .horseBox .historyBox .wrapper {
+    display: table;
+    width: 100%;
+}
+
+.horseTableList .horseBox .historyBox .wrapper div {
+    display: table-cell;
+    width: 40px;
+}
+
+/************************LIST CONTROL****************************/
+
+#panel .horseListControl span.on {
+    background-color: #777;
+    border-radius: 3px;
+}
+
+.horseListControl div {
+    margin: 5px 0;
+}
+
+
+/**********************************************/
+
+.controlMenu {
+    margin: 2px;
+}
