@@ -275,7 +275,7 @@ Racing.contentControl = {
         var horseRecordFinalPos = [];
         
         setTimeout(function(){
-            alert('infostat');
+            
             $.each($('.info .horseName'), function(){
                 $(this).css('color', '#777');
             })
@@ -433,7 +433,7 @@ Racing.contentControl = {
                  return (displacement / distance) * 100;
             }
             
-        }, 500)
+        }, 2000)
                 
     }
     
