@@ -264,7 +264,6 @@ Racing.contentControl = {
     },
     
     inFoStat: function(){
-        
         console.log('check');
         var dataSet = {};
         var distance = $('.speedCat span.on').text() != '' ? $('.speedCat span.on').text() : currentMatchDistance;
@@ -433,7 +432,7 @@ Racing.contentControl = {
                  return (displacement / distance) * 100;
             }
             
-        }, 2000)
+        }, 500)
                 
     }
     
