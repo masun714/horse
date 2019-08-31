@@ -264,6 +264,7 @@ Racing.contentControl = {
     },
     
     inFoStat: function(){
+        alert('infostat');
         console.log('check');
         var dataSet = {};
         var distance = $('.speedCat span.on').text() != '' ? $('.speedCat span.on').text() : currentMatchDistance;
