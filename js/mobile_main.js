@@ -27,7 +27,7 @@ Racing.HorseDataControl = function(data){
     
     $.each(currentMatchHistory, function(k,horse){
         
-        // stackStructure.status[k] = Racing.detectHorseStatus(horse);
+        stackStructure.status[k] = Racing.detectHorseStatus(horse);
         stackStructure.firstTime[k] = true;
         
         if(horse.length == 0 ){
@@ -65,31 +65,51 @@ Racing.detectHorseStatus = function(data){
     
     console.log(data[0].MatchHorseName + '--------------------------');
     
+    var distanceArr = ['1000', '1200', '1400', '1600', '1650', '1800', '2000', '2200', '2400'];
+    
+    var mapDistance = {};
+    
+    $.each(distanceArr, function(k,v){
+        if(currentMatchDistance == v ){
+            mapDistance[v] =  v
+            distanceArr[k + 1] != undefined ? mapDistance[distanceArr[k + 1]] =  distanceArr[k + 1] : '';
+            distanceArr[k - 1] != undefined ? mapDistance[distanceArr[k - 1]] =  distanceArr[k - 1] : '';
+        }
+        
+    })
+    
+    
     let horseStructure = {
         st:{},
         hv:{}
     };
     
     $.each(data, function(k,v){
-        if(v.MatchPlace == '沙田'){
+        
+        if(mapDistance[v.matchDistance]){
             
-            if(typeof horseStructure['st'][v.MatchDistance] == "undefined"){
-                horseStructure['st'][v.MatchDistance] = [];
-                horseStructure['st'][v.MatchDistance].push(v);
+            if(v.matchPlace == '沙田'){
+            
+                if(typeof horseStructure['st'][v.matchDistance] == "undefined"){
+                    horseStructure['st'][v.matchDistance] = [];
+                    horseStructure['st'][v.matchDistance].push(v);
+                }else{
+                    horseStructure['st'][v.matchDistance].push(v);
+                }
+                
             }else{
-                horseStructure['st'][v.MatchDistance].push(v);
+                
+                if(typeof horseStructure['hv'][v.matchDistance] == "undefined"){
+                    horseStructure['hv'][v.matchDistance] = [];
+                    horseStructure['hv'][v.matchDistance].push(v);
+                }else{
+                    horseStructure['hv'][v.matchDistance].push(v);
+                }
+                
             }
-            
-        }else{
-            
-            if(typeof horseStructure['hv'][v.MatchDistance] == "undefined"){
-                horseStructure['hv'][v.MatchDistance] = [];
-                horseStructure['hv'][v.MatchDistance].push(v);
-            }else{
-                horseStructure['hv'][v.MatchDistance].push(v);
-            }
-            
+               
         }
+        
     })
     
     console.log(horseStructure);
@@ -114,10 +134,10 @@ Racing.detectHorseStatus = function(data){
                 var dateLengthArr = [];
                 
                 for( var x = 0 ; x < v.length ; x ++){
-                    if(v[x].MatchSpeedRecord != '-'){
-                        timeArr.push(Number(v[x].MatchSpeedRecord.FinalTime.replace(/\.|\:/g,'')));
-                        dateLengthArr.push(x + 1);
-                    }
+                   
+                    timeArr.push( Math.round(Number(v[x].horseFinalTime.replace(/\.|\:/g,''))) );
+                    dateLengthArr.push(x + 1);
+
                 }
                 
                 console.log(timeArr);
