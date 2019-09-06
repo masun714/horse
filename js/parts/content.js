@@ -172,7 +172,7 @@ Racing.contentControl = {
                 
                 horseBox += '<div class="horseBoxWrapper">';
                 horseBox += '<div class="horseMatchDate">' + v.matchDate + '</div>';
-                horseBox += '<div class="horseName" style="background-color:' + Racing.Function.rgbRanking(horseCurrentMatchStackData.status[v.horseName]) + '">' + 
+                horseBox += '<div class="horseName" bg="background-color:' + Racing.Function.rgbRanking(horseCurrentMatchStackData.status[v.horseName]) + '">' + 
                  '<a href="https://racing.hkjc.com/racing/information/Chinese/Horse/Horse.aspx?HorseId=HK_' + v.horseId.substring(0,4) + '_' + v.horseId.substr(4, v.horseId.length) + '" target="_blank">' + v.horseName + '</a>' +
                  (horseCurrentMatchStackData.noHistory[v.horseName] ? 'H' : '' ) + (horseCurrentMatchStackData.firstTime[v.horseName] ? 'F' : '' )+ '</div>';
                 horseBox += '<div class="horseDistance">' + v.matchDistance + '</div>';
@@ -251,16 +251,37 @@ Racing.contentControl = {
         });
         
         
-        var html = '';
+        var html = '<div class="openAll close">展開</div>';
         $.each(data, function(k,v){
             html += '<div class="horseInfoRow" rel="' +　v.hrname_c +　'">' 
-                + '<div class="horseName" rel="' +　v.hrname_c +　'">' + ( k + 1 ) + '.' + v.hrname_c + (horseCurrentMatchStackData.noHistory[v.hrname_c] ? 'H' : '' ) + (horseCurrentMatchStackData.firstTime[v.hrname_c] ? 'F' : '' ) + '</div>'
+                + '<div class="horseName close" rel="' +　v.hrname_c +　'"><span class="openInfo">+</span>' 
+                    + '<a target="_blank" href="https://racing.hkjc.com/racing/information/Chinese/Horse/Horse.aspx?HorseNo=' + v.hrid + '">' + ( k + 1 ) + '.' + v.hrname_c + (horseCurrentMatchStackData.noHistory[v.hrname_c] ? 'H' : '' ) + (horseCurrentMatchStackData.firstTime[v.hrname_c] ? 'F' : '' ) + '</a>'
+                    + '<span class="horseInfoDetail"><br>歲:' + v.age + '<br>騎:' + v.jockey
+                    + '<br>練:' + v.stable + '<br>趨勢:' + Racing.Function.horseStatus(horseCurrentMatchStackData.status[v.hrname_c]) + '</span>'
+                + '</div>'
                 + '<div class="horseBar"></div>'
             + '</div>';
         })
         
         $('.info').html(html);
         
+        
+        
+        $('.openInfo').on('click', function(){
+            $(this).closest('.horseName').toggleClass('close');
+        })
+        
+        
+        $('.info .openAll').on('click', function(){
+            if($('.info .openAll').hasClass('close')){
+                $('.info .horseName').removeClass('close')
+            }else{
+                $('.info .horseName').addClass('close')
+            }
+            
+            $(this).toggleClass('close');
+            
+        })
     },
     
     inFoStat: function(){
@@ -285,7 +306,8 @@ Racing.contentControl = {
                     
                     var name = $(v).find('.horseName').text().replace(/H|F/g,'');
                     
-                    $('.info .horseName[rel="' + name + '"').css('color', '#fff');
+                    $('.info .horseName[rel="' + name + '"]').css('color', '#fff');
+                    $('.info .horseName[rel="' + name + '"] a').css('color', '#fff');
                     
                     if(typeof dataSet[name] == 'undefined'){
                         dataSet[name] = []
