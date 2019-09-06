@@ -203,6 +203,18 @@ Racing.Function.testGround = function(ground){
     
 }
 
+Racing.Function.horseStatus = function(mark){
+    
+    if(mark > 100){
+        return '向好';
+    }else if(mark < -100){
+        return '向差';
+    }else{
+        return '持平';
+    }
+    
+}
+
 Object.defineProperty(Array.prototype, 'divideArray', {
     value: function(chunkSize) {
         var array=this;
