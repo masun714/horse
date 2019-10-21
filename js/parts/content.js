@@ -257,6 +257,7 @@ Racing.contentControl = {
                 + '<div class="horseName close" rel="' +　v.hrname_c +　'"><span class="openInfo">+</span>' 
                     + '<a target="_blank" href="https://racing.hkjc.com/racing/information/Chinese/Horse/Horse.aspx?HorseNo=' + v.hrid + '">' + ( k + 1 ) + '.' + v.hrname_c + (horseCurrentMatchStackData.noHistory[v.hrname_c] ? 'H' : '' ) + (horseCurrentMatchStackData.firstTime[v.hrname_c] ? 'F' : '' ) + '</a>'
                     + '<span class="horseInfoDetail"><br>歲:' + v.age + '<br>騎:' + v.jockey
+                    + '<br>負磅' + v.weight
                     + '<br>練:' + v.stable + '<br>趨勢:' + Racing.Function.horseStatus(horseCurrentMatchStackData.status[v.hrname_c]) + '</span>'
                 + '</div>'
                 + '<div class="horseBar"></div>'
