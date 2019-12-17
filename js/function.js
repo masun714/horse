@@ -215,6 +215,28 @@ Racing.Function.horseStatus = function(mark){
     
 }
 
+Racing.Function.addDot = function(numbers){
+          
+    if(numbers == 0) return '-';
+    
+    var numArr = numbers.toString().split('').reverse();
+    var l = numArr.length;
+    var finalArr = [];
+    $.each(numArr, function(k,v){
+    	if( (k+1)%2 != 0 ){
+    		finalArr.push(v);
+    	}else{
+    		finalArr.push(v);
+    		if(k+1 != l){
+    			finalArr.push('.');
+    		}
+    	}
+    })
+    
+    return finalArr.reverse().join("");
+  
+}
+
 Object.defineProperty(Array.prototype, 'divideArray', {
     value: function(chunkSize) {
         var array=this;
