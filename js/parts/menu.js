@@ -98,9 +98,9 @@ Racing.menu = {
       
       $.each(foundRecord, function(k,v){
           if(k == 'BestTime'){
-              bestRecord += '<span>' + v + '</span>';
-          }else{
-              standardRecord += '<span>' + v + '</span>';
+              bestRecord += '<span>' + Racing.Function.addDot(v) + '</span>';
+          }else if(k != 'record'){
+              standardRecord += '<span>' + Racing.Function.addDot(v) + '</span>';
           }
       })
       
@@ -111,6 +111,7 @@ Racing.menu = {
       standardRecordTime += '</div>';
        
       $('.standardTime').html(standardRecordTime); 
+      
       
     }
     

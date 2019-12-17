@@ -51,11 +51,23 @@ Racing.dataLoader = {
     
     standTimeRecord : new Promise(function(solve, reject){
         
-        $.getJSON('data/racingTimeStandard.json', function(data){
+        
+        var getdata = firebase_database.ref('/').once('value', function(data){
             
-            standardTimeJson = data;
+            var fireData = data.val();
             
-        })
+            standardTimeJson = fireData.stardTimeJson;
+            
+            
+            solve();
+            
+        });
+        
+        // $.getJSON('data/racingTimeStandard.json', function(data){
+            
+        //     standardTimeJson = data;
+            
+        // })
         
     })
     
