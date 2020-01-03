@@ -9,39 +9,37 @@ Racing.menu = {
     
     buildMenu : function (){
     
-        $.get('data/match_all.js', function(data){
-            
-            
-            var data = JSON.parse(data)[0]['matchSchedule'];
-            basicMatchData = data;
-            
-            var menu = '';
+       
+        var data = allMatchData['matchSchedule'];
+        basicMatchData = data;
+        
+        var menu = '';
     
-            menu += '<div class="headerItem Date">' + data[0].racedate + '</div>';
-            menu += '<div class="headerItem Date">星期' + Racing.Function.dateFormat(data[0].racedate, 'dddd') + '</div>';
-            menu += '<div class="headerItem title">場次</div>';
+        menu += '<div class="headerItem Date">' + data[0].racedate + '</div>';
+        menu += '<div class="headerItem Date">星期' + Racing.Function.dateFormat(data[0].racedate, 'dddd') + '</div>';
+        menu += '<div class="headerItem title">場次</div>';
+        
+        for(var i = 1; i <= data.length ; i ++){
             
-            for(var i = 1; i <= data.length ; i ++){
-                
-                menu += '<div class="headerItem matchNo ' + ( currentMatch == i ? 'on' : '') +  '" rel="' + i + '">' + i + '</div>';
-            }
-            
-            $('#menu').html(menu);
-            
+            menu += '<div class="headerItem matchNo ' + ( currentMatch == i ? 'on' : '') +  '" rel="' + i + '">' + i + '</div>';
+        }
+        
+        $('#menu').html(menu);
+        
+        Racing.menu.buildHeader();
+        Racing.contentControl.init();
+        
+        
+        $('.headerItem.matchNo').click(function(el){
+            $('.headerItem').removeClass('on');
+            $(this).addClass('on');
+            currentMatch = parseInt($(this).attr('rel'));
             Racing.menu.buildHeader();
             Racing.contentControl.init();
-            
-            
-            $('.headerItem.matchNo').click(function(el){
-                $('.headerItem').removeClass('on');
-                $(this).addClass('on');
-                currentMatch = parseInt($(this).attr('rel'));
-                Racing.menu.buildHeader();
-                Racing.contentControl.init();
-            })
-            
-            
         })
+            
+            
+
     },
     
     buildHeader : function(){
