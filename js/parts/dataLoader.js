@@ -99,7 +99,7 @@ Racing.dataLoader = {
             var fireData = data.val();
             
             standardTimeJson = fireData.stardTimeJson;
-            
+            aimHorseList = fireData.aim_horse;
             
             solve();
             

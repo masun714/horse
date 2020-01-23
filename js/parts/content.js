@@ -253,12 +253,16 @@ Racing.contentControl = {
         
         var html = '<div class="openAll close">展開</div>';
         $.each(data, function(k,v){
+            
+            var aimData = Racing.Function.checkAimHorse(v.hrname_c);
+            
             html += '<div class="horseInfoRow" rel="' +　v.hrname_c +　'">' 
                 + '<div class="horseName close" rel="' +　v.hrname_c +　'"><span class="openInfo">+</span>' 
-                    + '<a target="_blank" href="https://racing.hkjc.com/racing/information/Chinese/Horse/Horse.aspx?HorseNo=' + v.hrid + '">' + v.hrno + '.' + v.hrname_c + (horseCurrentMatchStackData.noHistory[v.hrname_c] ? 'H' : '' ) + (horseCurrentMatchStackData.firstTime[v.hrname_c] ? 'F' : '' ) + '</a>'
+                    + '<a target="_blank" href="https://racing.hkjc.com/racing/information/Chinese/Horse/Horse.aspx?HorseNo=' + v.hrid + '" ' + (aimData ? 'class="aimHorse"' : '') +'>' + v.hrno + '.' + v.hrname_c + (horseCurrentMatchStackData.noHistory[v.hrname_c] ? 'H' : '' ) + (horseCurrentMatchStackData.firstTime[v.hrname_c] ? 'F' : '' ) + '</a>'
                     + '<span class="horseInfoDetail"><br>歲:' + v.age + '<br>騎:' + v.jockey
                     + '<br>負磅' + v.weight
                     + '<br>練:' + v.stable + '<br>趨勢:' + Racing.Function.horseStatus(horseCurrentMatchStackData.status[v.hrname_c]) + '</span>'
+                    + (aimData ? '<br>覲察詳細:<br>' + (aimData.place == 'st' ? '沙田' : '快活谷' ) + '<br>' + (aimData.ground == 'glass' ? '草地' : '泥地' ) + '<br>' + aimData.distance + '<br>班次:' + aimData.class + '<br>跑法:' + aimData.type  : '' )
                 + '</div>'
                 + '<div class="horseBar"></div>'
             + '</div>';
