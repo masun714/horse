@@ -237,6 +237,20 @@ Racing.Function.addDot = function(numbers){
   
 }
 
+Racing.Function.checkAimHorse = function(name){
+    
+    var data
+    
+    $.each(aimHorseList, function(k,v){
+        if(name == v.name){
+            data = v;
+        }
+    })
+    
+    return data;
+    
+}
+
 Object.defineProperty(Array.prototype, 'divideArray', {
     value: function(chunkSize) {
         var array=this;
