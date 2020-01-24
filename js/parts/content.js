@@ -262,7 +262,7 @@ Racing.contentControl = {
                     + '<span class="horseInfoDetail"><br>歲:' + v.age + '<br>騎:' + v.jockey
                     + '<br>負磅' + v.weight
                     + '<br>練:' + v.stable + '<br>趨勢:' + Racing.Function.horseStatus(horseCurrentMatchStackData.status[v.hrname_c]) + '</span>'
-                    + (aimData ? '<br>覲察詳細:<br>' + (aimData.place == 'st' ? '沙田' : '快活谷' ) + '<br>' + (aimData.ground == 'glass' ? '草地' : '泥地' ) + '<br>' + aimData.distance + '<br>班次:' + aimData.class + '<br>跑法:' + aimData.type  : '' )
+                    + (aimData ? '<br>覲察詳細:<br>' + aimData.date + '<br>' + (aimData.place == 'st' ? '沙田' : '快活谷' ) + '<br>' + (aimData.ground == 'glass' ? '草地' : '泥地' ) + '<br>' + aimData.distance + '<br>班次:' + aimData.class + '<br>跑法:' + aimData.type  : '' )
                 + '</div>'
                 + '<div class="horseBar"></div>'
             + '</div>';
